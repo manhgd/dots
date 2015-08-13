@@ -1,0 +1,51 @@
+[core]
+	editor = vi
+	eol = lf
+	excludesfile = ~/.gitignore
+	pager = less -r
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+  
+[push]
+	default = current
+
+[user]
+	name = Giang Manh
+	email = manhgd@users.noreply.github.com
+
+[svn]
+	rmdir = true
+	pushmergeinfo = true
+
+[filter "tab4"]
+  smudge = unexpand --tabs=4 --first-only
+  clean = expand --tabs=4 --initial
+[filter "tab2"]
+  smudge = unexpand --tabs=2 --first-only
+  clean = expand --tabs=2 --initial
+  
+[alias]	
+	w = diff --color-words --ignore-all-space
+	g = grep --break --heading --line-number
+	gui = !sh -c '/usr/local/opt/git/libexec/git-core/git-gui'
+  
+[credential]
+	helper = osxkeychain
+
+[grep]
+	linenumber = true
+
+[merge]
+	tool = opendiff
+  
+[merge "tool.opendiff"]
+	trustExitCode = true
+  cmd = /usr/bin/opendiff $LOCAL $REMOTE -merge $MERGED 2>/dev/null
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
